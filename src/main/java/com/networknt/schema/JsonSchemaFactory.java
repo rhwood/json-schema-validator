@@ -122,6 +122,16 @@ public class JsonSchemaFactory {
             return this;
         }
         
+        /**
+         * Add a mapping of URIs in schemas to alternate URIs. When a reference within a
+         * schema refers to a mapped URI, the {@link JsonSchema} will use the alternate
+         * URI. Such a mapping can be used to avoid a need to get a networked resource,
+         * that may be unreliable or redirected, by using the local resource in its
+         * place.
+         * 
+         * @param map the map of URIs; the key is the URI to be replaced with the
+         *            alternate URI
+         */
         public Builder addUriMappings(final Map<String, String> map) {
             this.uriMap.putAll(map);
             return this;
